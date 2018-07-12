@@ -8,12 +8,6 @@ def step_impl(context):
     print("Server Running")
 
 
-@when(u'I {method} to {endpoint}')
-def step_impl(context, method, endpoint):
-    context.method = method
-    context.endpoint = endpoint
-
-
 @step(u"I send the request")
 def step_impl(context):
     context.response = requests.get(url=context.base_url + context.endpoint)
