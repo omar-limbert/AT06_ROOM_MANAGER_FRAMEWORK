@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 
 import yaml
@@ -10,6 +11,9 @@ generic_data = yaml.load(open(config_path))
 
 
 def before_all(context):
+    """
+    This method is to initialize all context variables before tests.
+    """
     context.room_manager_host = generic_data['room_manager']['host']
     context.room_manager_port = generic_data['room_manager']['port']
 

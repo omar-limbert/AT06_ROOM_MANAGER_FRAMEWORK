@@ -1,8 +1,8 @@
 room_manager:
-  host: 10.37.129.3
-  port: 7070
+  host: {HOST_IP}
+  port: {PORT}
 
 root_path:
-  protocol: http
-  path: api
-  version: v1
+  protocol: {PROTOCOL}
+  path: {PATH}
+  version: {VERSION}
