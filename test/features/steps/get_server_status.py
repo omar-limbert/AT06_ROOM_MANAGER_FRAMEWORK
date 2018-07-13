@@ -1,5 +1,5 @@
 import requests
-from behave import given, when, step, then
+from behave import given, step, then
 from compare import expect
 
 
@@ -17,3 +17,4 @@ def step_impl(context):
 @then(u"I should get response with status code {status_code}")
 def step_impl(context, status_code):
     expect(int(status_code)).to_equal(context.response.status_code)
+    print(context.response.json())
