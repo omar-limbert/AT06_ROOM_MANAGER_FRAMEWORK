@@ -33,22 +33,15 @@ class ResponseJsonManager:
         elif type(json_expected) and type(json_response) is not dict:
             return False
 
-    @staticmethod
-    def extract_item(json_obj):
-        if type(json_obj) is not dict:
-            if type(json_obj) is list:
-                if len(json_obj) != 0:
-                    return json_obj[0]
-                else:
-                    return json_obj
-        return json_obj
-
+#
 # if __name__ == "__main__":
 #     is_equal = ResponseJsonManager.is_json_list_contains([{"4": "2"}, {"1": "2"}, {"5": "1", "6": "2"}],
 #                                                          {"6": "2", "5": "1"})
 #     print(is_equal)
 #
-#     is_equal = ResponseJsonManager.is_json_contains({"1": "1", "2": "2", "3": "3"}, {"1": "1", "2": "2"})
+#     is_equal = ResponseJsonManager.is_json_equal_to(
+#         {"1": "1", "2": [{"2.1": "2.1", "2.2": "2.2", "2.3": [{"2.3.1": "2.3.1", "2.3.2": "2.3.2"}]}]},
+#         {"1": "1", "2": [{"2.1": "2.1", "2.2": "2.2", "2.3": [{"2.3.1": "2.3.2", "2.3.2": "2.3.2"}]}]})
 #     print(is_equal)
 #
 #     is_equal = ResponseJsonManager.is_json_equal_to({"1": "1", "2": "2"}, {"2": "2", "1": "1"})
