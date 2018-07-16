@@ -1,3 +1,4 @@
+import json
 import os
 from pathlib import Path
 
@@ -7,6 +8,41 @@ from core.utils.common_actions import CommonActions
 
 
 class DataSettingsManager:
+
+    @staticmethod
+    def fill_json_with_data_on_settings(json_to_fill):
+        """
+        This method is to get data of setting file in a dictionary.
+        @:param file_data_name: This is a name of file to read on settings folder.
+        @:return dictionary with all data.
+        """
+        json_to_fill = json.loads(json_to_fill)
+        data_on_settings = DataSettingsManager.get_data_of_room_manager("data")
+        for key in json_to_fill:
+
+            key_to_find = str(json_to_fill[key])
+
+            if type(json_to_fill[key]) is list:
+                json_to_fill[key] = DataSettingsManager.fill_list_with_data_on_settings(json_to_fill[key],
+                                                                                        data_on_settings)
+
+            if key_to_find in data_on_settings.keys():
+                json_to_fill[key] = data_on_settings[key_to_find]
+
+    @staticmethod
+    def fill_list_with_data_on_settings(list_to_fill, data_on_settings):
+        """
+        This method is to fill list with data on settings.
+        @:param list_to_fill: This is a list to fill.
+        @:param data_on_settings: data on settings.
+        """
+        result = []
+        for data in list_to_fill:
+            if data in data_on_settings.keys():
+                result.append(data_on_settings[data])
+            else:
+                result.append(data)
+        return result
 
     @staticmethod
     def get_data_of_room_manager(file_data_name):
