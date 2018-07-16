@@ -34,4 +34,4 @@ class RequestManager:
             @:param params: Dictionary or bytes to be sent in the query string.
             @:param body: A JSON serializable Python object to send in the body of the request.
             '''
-        return requests.request(method, url, headers=headers, params=params, json=body).json()
+        return requests.request(method, url, headers=headers, params=params, json=body)
