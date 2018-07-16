@@ -36,6 +36,11 @@ class CommonActions:
 
     @staticmethod
     def convert_array_to_json(insert_array):
+        """
+        This method is to convert an array to json.
+        @:param insert_array: array to json.
+        @:return json.
+        """
         result = {}
         for doc in insert_array:
             print(doc)
@@ -44,6 +49,11 @@ class CommonActions:
 
     @staticmethod
     def convert_json_to_array(insert_json):
+        """
+        This method is to convert a json to array.
+        @:param insert_json: json to array.
+        @:return array.
+        """
         result = []
         for doc in insert_json:
             result.append(doc)
