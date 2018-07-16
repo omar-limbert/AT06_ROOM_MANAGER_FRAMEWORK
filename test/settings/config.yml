@@ -1,8 +1,8 @@
 room_manager:
-  host: {HOST_IP}
-  port: {PORT}
+  host:
+  port:
 
 root_path:
-  protocol: {PROTOCOL}
-  path: {PATH}
-  version: {VERSION}
+  protocol:
+  path:
+  version:
