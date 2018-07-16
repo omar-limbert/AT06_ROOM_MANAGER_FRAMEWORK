@@ -33,3 +33,18 @@ class CommonActions:
         for key in json_schema:
             json.dumps(json_schema[key], sort_keys=True)
         return json_schema
+
+    @staticmethod
+    def convert_array_to_json(insert_array):
+        result = {}
+        for doc in insert_array:
+            print(doc)
+            result.update(doc)
+        return result
+
+    @staticmethod
+    def convert_json_to_array(insert_json):
+        result = []
+        for doc in insert_json:
+            result.append(doc)
+        return result
