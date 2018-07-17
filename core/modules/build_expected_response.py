@@ -1,4 +1,5 @@
 # Class to build the expected response.
+
 class BuildResponse:
 
     @staticmethod
@@ -17,9 +18,10 @@ class BuildResponse:
                     if key_response.__contains__(key_expected):
                         res_dict_build[str(key_response)] = json_request[key_expected]
                     if key_response == "body" and json_response[key_expected].__contains__(json_request[key_expected]):
-                        res_dict_build[str(key_response)] = json_response[key_expected]
+                        res_dict_build[str(key_response)] = json_response[key_response]
                     elif key_response not in res_dict_build:
                         res_dict_build[str(key_response)] = json_response[key_response]
             return res_dict_build
+
         except KeyError:
             print("Build expected response: Key error")

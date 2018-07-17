@@ -1,3 +1,5 @@
+
+
 from behave import step
 from compare import expect
 
@@ -6,6 +8,7 @@ from core.modules.data_settings_manager import DataSettingsManager
 from core.modules.request_manager import RequestManager
 from core.modules.response_json_manager import ResponseJsonManager
 from core.modules.response_schema_manager import ResponseSchemaManager
+from core.utils.common_actions import CommonActions
 
 
 @step(u'I {method} to {end_point}')
@@ -16,6 +19,8 @@ def step_impl(context, method, end_point):
 
 @step(u"I prepare following body")
 def step_impl(context):
+
+
     context.body = DataSettingsManager.fill_json_with_data_on_settings(context.text)
 
 
@@ -56,7 +61,7 @@ def step_impl(context):
                                                       body=context.body,
                                                       )
     context.status_code = context.response.status_code
-    context.meeting_id = context.response.json()["_id"]
+    context.item_id = context.response.json()["_id"]
 
 
 @step("I send delete request")
@@ -67,16 +72,24 @@ def step_impl(context):
     context.response = RequestManager.execute_request(context.method,
                                                       context.base_url,
                                                       context.end_point,
-                                                      item_id=context.meeting_id,
+                                                      item_id=context.item_id,
                                                       headers=context.headers)
-
 
 @step("I prepare following header")
 def step_impl(context):
     """
     :type context: behave.runner.Context
     """
-    context.headers = {}
     for row in context.table:
         for heading in row.headings:
             context.headers[heading] = context.accounts[row[heading]]
+
+
+@step("I prepare following table")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    for row in context.table:
+        for heading in row.headings:
+            context.body[heading] = row[heading]+CommonActions.get_random_key()

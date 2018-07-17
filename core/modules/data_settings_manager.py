@@ -76,7 +76,7 @@ class DataSettingsManager:
         @:param password: Password of user.
         @:return String credentials encode with base64.
         """
-        return CommonActions.encode_base64("{}\{}:{}".format(domain[0:len(domain) - 4],
+        return CommonActions.encode_base64("{}\{}:{}".format(domain,
                                                              user,
                                                              password))
 

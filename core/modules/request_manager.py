@@ -12,7 +12,7 @@ class RequestManager:
             @:param endpoint: The endpoint.
             @:param item_id: Id of the element.
             '''
-        return "{}/{}/{}".format(base_url, endpoint, item_id)
+        return "{}{}/{}".format(base_url, endpoint, item_id)
 
     @staticmethod
     def add_header(key, value, headers):

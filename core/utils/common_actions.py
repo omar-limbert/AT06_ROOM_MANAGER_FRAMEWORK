@@ -1,5 +1,7 @@
 import base64
 import json
+import random
+import string
 
 
 class CommonActions:
@@ -21,15 +23,21 @@ class CommonActions:
         @:param json_schema: json to sort.
         @:return json sorted.
         """
+        json_schema = CommonActions.sort_inside_json_collection(json_schema)
         return json.dumps(json_schema, sort_keys=True)
 
     @staticmethod
-    def sort_json_collection_by_key(json_schema):
+    def sort_inside_json_collection(json_to_sort):
         """
         This method is to sort a json inside other json.
         @:param json_schema: json to sort.
         @:return json sorted.
         """
-        for key in json_schema:
-            json.dumps(json_schema[key], sort_keys=True)
-        return json_schema
+        for key in json_to_sort:
+            if type(json_to_sort[key]) is list:
+                json_to_sort[key] = sorted(json_to_sort[key])
+        return json_to_sort
+
+    @staticmethod
+    def get_random_key():
+        return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(5))
