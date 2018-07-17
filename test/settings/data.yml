@@ -2,13 +2,13 @@
 #__ADMINISTRATOR_CREDENTIALS is auto generated
 #__USER_CREDENTIALS is auto generated
 
-__DOMAIN:
-__ADMINISTRATOR_ACC:
-__ADMINISTRATOR_PWD:
-__USER_ACC:
-__USER_PWD:
+__DOMAIN: roommanager.com
+__ADMINISTRATOR_ACC: Administrator
+__ADMINISTRATOR_EMAIL: Administrator@roommanager.com
+__ADMINISTRATOR_PWD: LeroLero123
+__USER_ACC: omar@roommanager.com
+__USER_PWD: LeroLero123
 
 #Rooms
-__ROOM1:
-__ROOM2:
-
+__ROOM1: LPZ-ROOM@roommanager.com
+__ROOM2: CBBA-ROOM@roommanager.com
