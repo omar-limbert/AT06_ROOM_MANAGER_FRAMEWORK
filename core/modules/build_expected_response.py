@@ -24,3 +24,17 @@ class BuildResponse:
             return res_dict_build
         except KeyError:
             print("Build expected response: Key error")
+
+    @staticmethod
+    def response_get_vs_post(response_get_parameter, response_post_parameter):
+        if type(response_get_parameter) and type(response_post_parameter) is not dict:
+            return None
+        result = True
+        for key in response_get_parameter:
+            if key in response_post_parameter:
+                if response_get_parameter[key] != response_post_parameter[key]:
+                    print(
+                        "JSON_request: {} >>> request_value({}) not equals to JSON_response: {} >>> response_value({})".
+                        format(key, response_get_parameter[key], key, response_post_parameter[key]))
+                    result = False
+        return result
