@@ -10,7 +10,7 @@ def step_impl(context):
 
 @step(u"I send the request")
 def step_impl(context):
-    context.response = requests.get(url=context.base_url + context.endpoint)
+    context.response = requests.get(url=context.base_url + context.end_point)
     context.status_code = context.response.status_code
 
 

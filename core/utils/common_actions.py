@@ -12,7 +12,7 @@ class CommonActions:
         @:return String encode with base64.
         """
         result = str(base64.b64encode(bytes(string_to_encode, "utf-8")))
-        return result[2:len(result)-1]
+        return result[2:len(result) - 1]
 
     @staticmethod
     def sort_json_by_key(json_schema):
@@ -33,3 +33,4 @@ class CommonActions:
         for key in json_schema:
             json.dumps(json_schema[key], sort_keys=True)
         return json_schema
+
