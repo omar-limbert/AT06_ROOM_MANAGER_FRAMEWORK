@@ -20,6 +20,7 @@ class ResponseSchemaManager:
         try:
             return schema_validator.validate(json_schema_response)
         except SchemaError:
+
             return False
 
     @staticmethod
@@ -29,10 +30,11 @@ class ResponseSchemaManager:
         @:param schema_name: schema name.
         @:return schema on json format.
         """
-        schema_path = "{}{}test{}schemes{}{}.json".format(str(Path().absolute().parent.parent),
+        schema_path = "{}{}test{}schemes{}{}.json".format(str(Path().absolute()),
                                                           os.path.sep,
                                                           os.path.sep,
                                                           os.path.sep,
-                                                          schema_name)
+                                                          schema_name
+                                                          )
 
         return json.loads(open(schema_path).read())

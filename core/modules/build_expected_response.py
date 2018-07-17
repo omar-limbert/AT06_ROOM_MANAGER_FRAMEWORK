@@ -20,7 +20,6 @@ class BuildResponse:
                         res_dict_build[str(key_response)] = json_response[key_expected]
                     elif key_response not in res_dict_build:
                         res_dict_build[str(key_response)] = json_response[key_response]
-            print(res_dict_build)
             return res_dict_build
         except KeyError:
             print("Build expected response: Key error")

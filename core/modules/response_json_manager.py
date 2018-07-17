@@ -50,3 +50,5 @@ class ResponseJsonManager:
             return True
         elif type(json_expected) and type(json_response) is not dict:
             return False
+        else:
+            return False
