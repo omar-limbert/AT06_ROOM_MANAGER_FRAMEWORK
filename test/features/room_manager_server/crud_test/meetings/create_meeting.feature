@@ -8,7 +8,7 @@ Feature: POST /meetings CRUD
         """
           {
             "organizer": "__ADMINISTRATOR_EMAIL",
-            "subject": "Subject test ",
+            "subject": "Subject test",
             "body": "Body test",
             "start": "2018-08-01T20:00:00.000Z",
             "end": "2018-08-01T20:30:00.000Z",
