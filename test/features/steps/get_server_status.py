@@ -1,6 +1,6 @@
-import requests
-from behave import given, step, then
-from compare import expect
+from behave import given, step
+
+from core.modules.request_manager import RequestManager
 
 
 @given(u'I have room manager server running')
@@ -10,11 +10,7 @@ def step_impl(context):
 
 @step(u"I send the request")
 def step_impl(context):
-    context.response = requests.get(url=context.base_url + context.endpoint)
+    context.response = RequestManager.execute_request(context.method,
+                                                      context.base_url,
+                                                      context.end_point)
     context.status_code = context.response.status_code
-
-
-@then(u"I should get response with status code {status_code}")
-def step_impl(context, status_code):
-    expect(int(status_code)).to_equal(context.response.status_code)
-    print(context.response.json())
