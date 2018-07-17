@@ -39,5 +39,17 @@ class CommonActions:
         return json_to_sort
 
     @staticmethod
+    def parameter_validator(context, param):
+        """
+        Method to validate parameter sent in the feature.
+        :param context: is the context param.
+        :param param: is the parameter received from the feature.
+        :return: the parameter validated.
+        """
+        if param[0] == '_' and param[1] == '_':
+            return context.accounts[param]
+        return param
+
+    @staticmethod
     def get_random_key():
         return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(5))

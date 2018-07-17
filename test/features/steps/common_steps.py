@@ -1,5 +1,3 @@
-
-
 from behave import step
 from compare import expect
 
@@ -19,8 +17,6 @@ def step_impl(context, method, end_point):
 
 @step(u"I prepare following body")
 def step_impl(context):
-
-
     context.body = DataSettingsManager.fill_json_with_data_on_settings(context.text)
 
 
@@ -61,7 +57,18 @@ def step_impl(context):
                                                       body=context.body,
                                                       )
     context.status_code = context.response.status_code
-    context.item_id = context.response.json()["_id"]
+
+
+@step("I send update request")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    context.response = RequestManager.execute_request(context.method,
+                                                      context.base_url,
+                                                      context.end_point,
+                                                      item_id=context.item_id,
+                                                      headers=context.headers)
 
 
 @step("I send delete request")
@@ -74,6 +81,7 @@ def step_impl(context):
                                                       context.end_point,
                                                       item_id=context.item_id,
                                                       headers=context.headers)
+
 
 @step("I prepare following header")
 def step_impl(context):
@@ -92,4 +100,4 @@ def step_impl(context):
     """
     for row in context.table:
         for heading in row.headings:
-            context.body[heading] = row[heading]+CommonActions.get_random_key()
+            context.body[heading] = row[heading] + CommonActions.get_random_key()
