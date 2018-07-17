@@ -25,13 +25,19 @@ class RequestManager:
         headers[key] = value
 
     @staticmethod
-    def execute_request(method, url, headers={}, params={}, body={}):
+    def execute_request(method, base_url, endpoint, item_id='', headers={}, params={}, body={}):
         '''
             Performs an API request.
             @:param method: The method.
-            @:param url: The comlete URL.
+            @:param base_url: The base URL.
+            @:param endpoint: The endpoint.
+            @:param item_id: Id of the item for perform the request.
             @:param headers: Dictionary of HTTP Headers to send.
             @:param params: Dictionary or bytes to be sent in the query string.
             @:param body: A JSON serializable Python object to send in the body of the request.
             '''
-        return requests.request(method, url, headers=headers, params=params, json=body)
+        url = RequestManager.build_url(base_url, endpoint, item_id)
+        if method == 'GET' or method == 'DELETE':
+            return requests.request(method, url, headers=headers, params=params)
+        elif method == 'POST' or method == 'PUT':
+            return requests.request(method, url, headers=headers, json=body)
