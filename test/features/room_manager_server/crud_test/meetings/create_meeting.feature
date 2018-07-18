@@ -1,6 +1,6 @@
 @CRUD @meetings @room_manager_server
 Feature: POST /meetings
-  @room_manager_server
+
   Scenario: Create meeting with Administrator credentials
 
     Given I POST to /meetings
@@ -25,6 +25,6 @@ Feature: POST /meetings
       | __ADMINISTRATOR_CREDENTIALS |
     And I send the request
     And I keep the "id" as "$item_id" from JSON response
-    Then I should get response with status code 200
+    Then I should get response with status code 201
     And I should validate schema received with  meeting schema on meetings folder
     And I should validate the response contains the body json sent

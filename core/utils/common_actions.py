@@ -1,7 +1,9 @@
 import base64
 import json
+import os
 import random
 import string
+from pathlib import Path
 
 
 class CommonActions:
@@ -80,3 +82,19 @@ class CommonActions:
         for doc in insert_json:
             result.append(doc)
         return result
+
+    @staticmethod
+    def get_json_sample(schema_name):
+        """
+        This method is to get a scheme.
+        @:param schema_name: schema name.
+        @:return schema on json format.
+        """
+        schema_path = "{}{}test{}samples{}{}.json".format(str(Path().absolute()),
+                                                          os.path.sep,
+                                                          os.path.sep,
+                                                          os.path.sep,
+                                                          schema_name
+                                                          )
+
+        return json.loads(open(schema_path).read())

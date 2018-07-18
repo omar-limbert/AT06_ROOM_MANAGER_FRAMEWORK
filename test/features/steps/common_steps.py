@@ -2,6 +2,7 @@ from behave import step
 from compare import expect
 from core.modules.build_expected_response import BuildResponse
 from core.modules.data_settings_manager import DataSettingsManager
+from core.modules.request_manager import RequestManager
 from core.modules.response_json_manager import ResponseJsonManager
 from core.modules.response_schema_manager import ResponseSchemaManager
 from core.utils.common_actions import CommonActions
@@ -94,3 +95,4 @@ def step_impl(context):
     :type context: behave.runner.Context
     """
     context.item_id = context.response.json()["_id"]
+
