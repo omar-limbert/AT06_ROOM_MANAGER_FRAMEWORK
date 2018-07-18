@@ -7,7 +7,7 @@ Feature: DELETE /meetings/{meetingId}
         """
           {
             "organizer": "__ADMINISTRATOR_EMAIL",
-            "subject": "Subject test ",
+            "subject": "Subject test",
             "body": "Body test",
             "start": "2018-08-01T20:00:00.000Z",
             "end": "2018-08-01T20:30:00.000Z",
@@ -15,19 +15,20 @@ Feature: DELETE /meetings/{meetingId}
               "__ROOM1",
               "__ROOM2"
             ],
-            "attendees": ["__USER_ACC"],
+            "attendees": ["__USER1_EMAIL", "__USER2_EMAIL"],
             "optionalAttendees": []
           }
         """
-    And I prepare following header
+     And I prepare following header
       | Credentials                 |
       | __ADMINISTRATOR_CREDENTIALS |
-    And I send create request
+    And I send the request
+    And I keep the "id" as "$item_id" from JSON response
   @create_meeting
   Scenario: Delete an existing meeting by id
 
     When I DELETE to /meetings
-    And I send delete request
+    And I send the request
     Then I should get response with status code 204
-    And I should validate the meeting schema received
+    And I should validate schema received with  meeting schema on meetings folder
     And I should validate the response contains the body json sent

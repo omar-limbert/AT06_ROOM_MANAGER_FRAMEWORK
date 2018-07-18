@@ -4,6 +4,7 @@ import os
 import yaml
 
 from core.modules.data_settings_manager import DataSettingsManager
+from core.modules.request_manager import RequestManager
 from core.utils.singleton_logger import SingletonLogger
 
 global generic_data
@@ -17,12 +18,15 @@ def before_all(context):
     """
     This method is to initialize all context variables before tests.
     """
+    context.item_id = ""
     context.accounts = DataSettingsManager.get_data_of_room_manager("data")
-    context.headers = {}
-    context.body = {}
+    print(context.accounts["__ADMINISTRATOR_CREDENTIALS"])
 
 
 def before_scenario(context, scenario):
+    context.request = RequestManager()
+    context.request.set_base_url(context.base_url)
+
     if "create_meeting" in scenario.tags:
         print("I will create a meeting")
 

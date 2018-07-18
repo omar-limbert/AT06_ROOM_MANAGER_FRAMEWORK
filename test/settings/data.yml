@@ -1,14 +1,19 @@
 #Users Information
 #__ADMINISTRATOR_CREDENTIALS is auto generated
-#__USER_CREDENTIALS is auto generated
+#__USER1_CREDENTIALS is auto generated
+#__USER2_CREDENTIALS is auto generated
 
 __DOMAIN:
 __ADMINISTRATOR_ACC:
 __ADMINISTRATOR_EMAIL:
 __ADMINISTRATOR_PWD:
-__USER_ACC:
-__USER_PWD:
+__USER1_ACC:
+__USER1_EMAIL:
+__USER1_PWD:
+__USER2_ACC:
+__USER2_EMAIL:
+__USER2_PWD:
 
 #Rooms
 __ROOM1:
-__ROOM2:
+__ROOM2: 
