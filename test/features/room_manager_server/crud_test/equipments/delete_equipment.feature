@@ -1,14 +1,7 @@
 @CRUD @equipment @room_manager_server
 Feature: DELETE /meetings/{meetingId}
 
-  Background: Create meeting with Administrator credentials
-    Given I POST to /equipments
-    When I prepare following table
-      | name        | displayName | icon    |
-      | DataDisplay | Data        | dt_icon |
-    And I send the request
-    And I keep the "id" as "$item_id" from JSON response
-
+  @create_equipment
   Scenario: Delete an existing equipment by id
 
     When I DELETE to /equipments
