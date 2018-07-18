@@ -18,4 +18,3 @@ class MongoDBSingleton(object):
 
     def get_connection(self):
         return MongoDBSingleton.__client
-

@@ -27,3 +27,4 @@ class DataBaseManager:
         collections = db[name_db]
         result = collections.update_one({where_field: ObjectId(where_value)}, {"$set": fields_values})
         return result
+

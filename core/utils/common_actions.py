@@ -53,3 +53,28 @@ class CommonActions:
     @staticmethod
     def get_random_key():
         return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(5))
+    
+    @staticmethod
+    def convert_array_to_json(insert_array):
+        """
+        This method is to convert an array to json.
+        @:param insert_array: array to json.
+        @:return json.
+        """
+        result = {}
+        for doc in insert_array:
+            print(doc)
+            result.update(doc)
+        return result
+
+    @staticmethod
+    def convert_json_to_array(insert_json):
+        """
+        This method is to convert a json to array.
+        @:param insert_json: json to array.
+        @:return array.
+        """
+        result = []
+        for doc in insert_json:
+            result.append(doc)
+        return result
