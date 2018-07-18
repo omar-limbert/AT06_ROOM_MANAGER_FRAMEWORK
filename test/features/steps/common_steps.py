@@ -1,12 +1,27 @@
 from behave import step
 from compare import expect
-
 from core.modules.build_expected_response import BuildResponse
 from core.modules.data_settings_manager import DataSettingsManager
 from core.modules.request_manager import RequestManager
 from core.modules.response_json_manager import ResponseJsonManager
 from core.modules.response_schema_manager import ResponseSchemaManager
 from core.utils.common_actions import CommonActions
+from core.utils.singleton_logger import SingletonLogger
+
+logger_agent = SingletonLogger().get_logger()
+
+
+@step(u'I have {server} Server running')
+def step_impl(context, server):
+    logger_agent.info("SERVER: {} Server".format(server))
+
+
+@step(u"I send the request")
+def step_impl(context):
+    context.response = RequestManager.execute_request(context.method,
+                                                      context.base_url,
+                                                      context.end_point)
+    context.status_code = context.response.status_code
 
 
 @step(u'I {method} to {end_point}')
@@ -57,6 +72,7 @@ def step_impl(context):
                                                       body=context.body,
                                                       )
     context.status_code = context.response.status_code
+    context.item_id = context.response.json()["_id"]
 
 
 @step("I send update request")

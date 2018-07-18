@@ -1,4 +1,4 @@
-@CRUD @meetings @delete
+@CRUD @meetings @room_manager_server
 Feature: DELETE /meetings/{meetingId}
 
   Background: Create meeting with Administrator credentials
@@ -23,7 +23,7 @@ Feature: DELETE /meetings/{meetingId}
       | Credentials                 |
       | __ADMINISTRATOR_CREDENTIALS |
     And I send create request
-
+  @create_meeting
   Scenario: Delete an existing meeting by id
 
     When I DELETE to /meetings
