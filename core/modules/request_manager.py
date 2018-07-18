@@ -11,6 +11,13 @@ class RequestManager:
         self.item_id = ""
         self.base_url = ""
 
+    def set_initial_values(self):
+        self.headers = {}
+        self.parameters = {}
+        self.body = {}
+        self.item_id = ""
+        self.base_url = ""
+
     def set_headers(self, headers):
         self.headers = headers
 
@@ -56,7 +63,8 @@ class RequestManager:
             @:param item_id: Id of the item for perform the request.
             '''
         uri = RequestManager.build_url(self, endpoint)
-        print(uri,self.item_id)
+        print(uri)
+        print(uri, self.item_id)
         if len(self.headers):
             if method == 'DELETE':
                 print("delete?")
