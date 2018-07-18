@@ -1,5 +1,5 @@
-@CRUD @meetings @room_manager_server
-Feature: GET /meetings CRUD
+@Smoke @meetings @room_manager_server
+Feature: Smoke GET /meetings CRUD
 
   Scenario: Get meetings with Administrator credentials
 
