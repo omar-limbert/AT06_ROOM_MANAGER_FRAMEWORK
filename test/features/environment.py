@@ -31,7 +31,6 @@ def before_all(context):
                                                  context.room_manager_port,
                                                  context.path,
                                                  context.version)
-
     context.accounts = DataSettingsManager.get_data_of_room_manager("data")
-
-    print(context.accounts)
+    context.headers = {}
+    context.body = {}

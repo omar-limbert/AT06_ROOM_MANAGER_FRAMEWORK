@@ -1,14 +1,13 @@
-@CRUD @meetings
-Feature: POST /meetings CRUD
+@CRUD @meetings @delete
+Feature: DELETE /meetings/{meetingId}
 
-  Scenario: Create meeting with Administrator credentials
-
+  Background: Create meeting with Administrator credentials
     Given I POST to /meetings
     When I prepare following body
         """
           {
             "organizer": "__ADMINISTRATOR_EMAIL",
-            "subject": "Subject test",
+            "subject": "Subject test ",
             "body": "Body test",
             "start": "2018-08-01T20:00:00.000Z",
             "end": "2018-08-01T20:30:00.000Z",
@@ -16,7 +15,7 @@ Feature: POST /meetings CRUD
               "__ROOM1",
               "__ROOM2"
             ],
-            "attendees": [],
+            "attendees": ["__USER_ACC"],
             "optionalAttendees": []
           }
         """
@@ -24,6 +23,11 @@ Feature: POST /meetings CRUD
       | Credentials                 |
       | __ADMINISTRATOR_CREDENTIALS |
     And I send create request
-    Then I should get response with status code 200
+
+  Scenario: Delete an existing meeting by id
+
+    When I DELETE to /meetings
+    And I send delete request
+    Then I should get response with status code 204
     And I should validate the meeting schema received
     And I should validate the response contains the body json sent

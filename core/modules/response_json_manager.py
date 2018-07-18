@@ -24,8 +24,8 @@ class ResponseJsonManager:
         @:param json_to_search: Json to eval.
         @:param True if json_to_search data is on json_to_compare, False is not on json_to_compare.
         """
-        CommonActions.sort_json_by_key(json_to_search)
-        CommonActions.sort_json_by_key(json_to_compare)
+        json_to_search = CommonActions.sort_json_by_key(json_to_search)
+        json_to_compare = CommonActions.sort_json_by_key(json_to_compare)
         try:
             for key in json_to_search:
                 if not (str(json_to_search[key]) in str(json_to_compare[key]) or str(json_to_compare[key]) in str(
@@ -44,9 +44,11 @@ class ResponseJsonManager:
         @:param json_expected: Json to compare.
         @:param True if json_response is equal to json_expected, False is not equal to json_expected.
         """
-        CommonActions.sort_json_by_key(json_response)
-        CommonActions.sort_json_by_key(json_expected)
+        json_response = CommonActions.sort_json_by_key(json_response)
+        json_expected = CommonActions.sort_json_by_key(json_expected)
         if json_response == json_expected:
             return True
         elif type(json_expected) and type(json_response) is not dict:
+            return False
+        else:
             return False
