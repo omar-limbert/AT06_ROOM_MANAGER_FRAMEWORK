@@ -1,25 +1,20 @@
 from pymongo import MongoClient
 
 
-class DBManager(type):
-    """Singleton that keep only one value for all instances"""
-    _instances = {}
+class MongoDBSingleton(object):
+    '''Conecction to mongodb in singleton'''
 
-    def __call__(cls, *args, **kwargs):
-        if cls not in cls._instances:
-            cls._instances[cls] = super(DBManager, cls).__call__(*args, **kwargs)
-        return cls._instances[cls]
+    __instance = None
+    __client = None
 
+    def __new__(cls, *args, **kwargs):
+        if MongoDBSingleton.__instance is None:
+            MongoDBSingleton.__instance = object.__new__(cls)
+        return MongoDBSingleton.__instance
 
-class SingletonMongoClient(object, metaclass=DBManager):
-    """ Class based on Singleton type to work with MongoDB connections"""
     def __init__(self):
-        """ This method is to initialize logger.
-            """
-        self._connection = MongoClient('localhost', 27017)
+        if MongoDBSingleton.__client is None:
+            MongoDBSingleton.__client = MongoClient('mongodb://10.28.136.135:27017')
 
     def get_connection(self):
-        """This method is to get connection.
-            @:return _connection.
-            """
-        return self._connection
+        return MongoDBSingleton.__client
