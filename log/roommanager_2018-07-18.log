@@ -1,0 +1,61 @@
+2018-07-18 11:57:29,508 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 11:57:29,539 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 11:57:29,555 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 11:57:29,571 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 11:57:29,571 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 11:57:29,586 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 11:57:29,618 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 11:57:29,618 	 [INFO] | common_steps.py:16] > SERVER: Exchange Server
+2018-07-18 11:57:29,618 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 11:57:29,618 	 [INFO] | common_steps.py:16] > SERVER: Room Manager Server
+2018-07-18 12:26:26,883 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 12:26:26,946 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 12:26:27,024 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 12:26:27,055 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 12:26:27,118 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 12:26:27,149 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 12:26:27,196 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 12:26:27,211 	 [INFO] | common_steps.py:16] > SERVER: Exchange Server
+2018-07-18 12:26:27,252 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 12:26:27,255 	 [INFO] | common_steps.py:16] > SERVER: Room Manager Server
+2018-07-18 13:17:29,555 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 13:17:29,571 	 [INFO] | common_steps.py:16] > SERVER: Exchange Server
+2018-07-18 13:58:36,289 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 13:58:36,289 	 [INFO] | common_steps.py:16] > SERVER: Exchange Server
+2018-07-18 13:59:06,039 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 13:59:06,258 	 [INFO] | common_steps.py:16] > SERVER: Room Manager Server
+2018-07-18 14:13:14,196 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 14:24:27,227 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 14:24:27,227 	 [INFO] | common_steps.py:16] > SERVER: Exchange Server
+2018-07-18 14:24:34,899 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 14:24:34,899 	 [INFO] | common_steps.py:16] > SERVER: Room Manager Server
+2018-07-18 14:25:16,586 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 14:25:16,586 	 [INFO] | common_steps.py:16] > SERVER: Room Manager Server
+2018-07-18 14:25:19,180 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 14:25:19,180 	 [INFO] | common_steps.py:16] > SERVER: Room Manager Server
+2018-07-18 14:43:29,180 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 14:50:53,696 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 14:51:13,008 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 14:51:19,149 	 [INFO] | environment.py:32] > Executing with Room Manager Server
+2018-07-18 15:24:00,883 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 17:18:51,925 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 17:53:08,727 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:35:04,137 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:35:04,166 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:35:04,424 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:35:30,598 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:36:17,530 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:37:28,016 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:38:25,276 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:38:56,072 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:40:04,546 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:41:19,026 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:42:19,138 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:44:03,423 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:44:14,347 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:44:50,401 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:45:29,744 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:46:08,501 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:46:20,924 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:47:00,440 	 [INFO] | environment.py:35] > Executing with Room Manager Server
+2018-07-18 18:47:40,461 	 [INFO] | environment.py:35] > Executing with Room Manager Server

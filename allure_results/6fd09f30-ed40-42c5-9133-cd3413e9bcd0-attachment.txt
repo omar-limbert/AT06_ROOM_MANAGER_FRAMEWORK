@@ -1,0 +1,16 @@
+  {
+    "organizer": "lab1@manual.local",
+    "subject": "Scrum Test PUT",
+    "body": "Test meeting PUT",
+    "start": "2018-07-12",
+    "end": "2018-07-12T21:07:19.472Z",
+    "rooms": [
+      "lab1@manual.local"
+    ],
+    "attendees": [
+      "jin@manual.local"
+    ],
+    "optionalAttendees": [
+
+    ]
+  }

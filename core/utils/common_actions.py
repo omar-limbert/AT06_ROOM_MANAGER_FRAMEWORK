@@ -1,7 +1,9 @@
 import base64
 import json
+import os
 import random
 import string
+from pathlib import Path
 
 
 class CommonActions:
@@ -14,17 +16,17 @@ class CommonActions:
         @:return String encode with base64.
         """
         result = str(base64.b64encode(bytes(string_to_encode, "utf-8")))
-        return result[2:len(result)-1]
+        return result[2:len(result) - 1]
 
     @staticmethod
-    def sort_json_by_key(json_schema):
+    def sort_json_by_key(json_to_sort):
         """
         This method is to sort a json.
         @:param json_schema: json to sort.
         @:return json sorted.
         """
-        json_schema = CommonActions.sort_inside_json_collection(json_schema)
-        return json.dumps(json_schema, sort_keys=True)
+        json_to_sort = CommonActions.sort_inside_json_collection(json_to_sort)
+        return json.dumps(json_to_sort, sort_keys=True)
 
     @staticmethod
     def sort_inside_json_collection(json_to_sort):
@@ -33,9 +35,11 @@ class CommonActions:
         @:param json_schema: json to sort.
         @:return json sorted.
         """
+
         for key in json_to_sort:
             if type(json_to_sort[key]) is list:
                 json_to_sort[key] = sorted(json_to_sort[key])
+
         return json_to_sort
 
     @staticmethod
@@ -53,7 +57,7 @@ class CommonActions:
     @staticmethod
     def get_random_key():
         return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(5))
-    
+
     @staticmethod
     def convert_array_to_json(insert_array):
         """
@@ -78,3 +82,19 @@ class CommonActions:
         for doc in insert_json:
             result.append(doc)
         return result
+
+    @staticmethod
+    def get_json_sample(schema_name):
+        """
+        This method is to get a scheme.
+        @:param schema_name: schema name.
+        @:return schema on json format.
+        """
+        schema_path = "{}{}test{}samples{}{}.json".format(str(Path().absolute()),
+                                                          os.path.sep,
+                                                          os.path.sep,
+                                                          os.path.sep,
+                                                          schema_name
+                                                          )
+
+        return json.loads(open(schema_path).read())

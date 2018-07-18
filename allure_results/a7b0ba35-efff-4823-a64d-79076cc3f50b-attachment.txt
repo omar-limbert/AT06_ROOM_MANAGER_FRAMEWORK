@@ -1,0 +1,13 @@
+  {
+    "organizer": "__ADMINISTRATOR_EMAIL",
+    "subject": "Subject test",
+    "body": "Body test",
+    "start": "2018-08-01T20:00:00.000Z",
+    "end": "2018-08-01T20:30:00.000Z",
+    "rooms": [
+      "__ROOM1",
+      "__ROOM2"
+    ],
+    "attendees": ["daniel@manual.local"],
+    "optionalAttendees": []
+  }

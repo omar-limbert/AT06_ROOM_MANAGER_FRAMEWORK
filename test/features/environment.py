@@ -4,6 +4,8 @@ import os
 import yaml
 
 from core.modules.data_settings_manager import DataSettingsManager
+from core.modules.request_manager import RequestManager
+from core.utils.common_actions import CommonActions
 from core.utils.singleton_logger import SingletonLogger
 
 global generic_data
@@ -17,14 +19,22 @@ def before_all(context):
     """
     This method is to initialize all context variables before tests.
     """
+    context.request = RequestManager()
+    context.item_id = ""
     context.accounts = DataSettingsManager.get_data_of_room_manager("data")
-    context.headers = {}
-    context.body = {}
+    print(context.accounts["__ADMINISTRATOR_CREDENTIALS"])
 
 
 def before_scenario(context, scenario):
+    context.request.set_initial_values()
+    context.request.set_base_url(context.base_url)
+
     if "create_meeting" in scenario.tags:
-        print("I will create a meeting")
+        headers = {"Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"]}
+        create_feature_request(context, "meetings", headers)
+
+    if "create_equipment" in scenario.tags:
+        create_feature_request(context, "equipments")
 
 
 def before_feature(context, feature):
@@ -60,3 +70,16 @@ def set_base_url(context):
                                                  context.server_port,
                                                  context.server_path,
                                                  context.server_version)
+
+
+def create_feature_request(context, feature, headers=None):
+    if headers is None:
+        headers = {}
+
+    json_sample = CommonActions.get_json_sample(feature)
+    context.request.set_body(
+        DataSettingsManager.fill_json_with_data_on_settings(str(json_sample).replace("'", "\"")))
+    context.request.set_headers(headers)
+    context.response = context.request.execute_request("POST",
+                                                       "/{}".format(feature))
+    context.item_id = context.response.json()["_id"]
