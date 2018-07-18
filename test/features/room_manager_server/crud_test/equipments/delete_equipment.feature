@@ -1,4 +1,4 @@
-@CRUD @meetings @delete
+@CRUD @equipment @room_manager_server
 Feature: DELETE /meetings/{meetingId}
 
   Background: Create meeting with Administrator credentials

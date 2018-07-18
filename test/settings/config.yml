@@ -1,8 +1,14 @@
-room_manager:
-  host: 10.37.129.3
-  port: 7070
+room_manager_server:
+  host:
+  port:
+  protocol:
+  path:
+  version:
 
-root_path:
-  protocol: http
-  path: api
-  version: v1
+exchange_manager_server:
+  host:
+  port:
+  protocol:
+  path:
+  version: 
+

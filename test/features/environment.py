@@ -17,20 +17,46 @@ def before_all(context):
     """
     This method is to initialize all context variables before tests.
     """
-
-    logger_agent.info("Execute Before all")
-    context.room_manager_host = generic_data['room_manager']['host']
-    context.room_manager_port = generic_data['room_manager']['port']
-
-    context.protocol = generic_data['root_path']['protocol']
-    context.path = generic_data['root_path']['path']
-    context.version = generic_data['root_path']['version']
-
-    context.base_url = '{}://{}:{}/{}/{}'.format(context.protocol,
-                                                 context.room_manager_host,
-                                                 context.room_manager_port,
-                                                 context.path,
-                                                 context.version)
     context.accounts = DataSettingsManager.get_data_of_room_manager("data")
     context.headers = {}
     context.body = {}
+
+
+def before_scenario(context, scenario):
+    if "create_meeting" in scenario.tags:
+        print("I will create a meeting")
+
+
+def before_feature(context, feature):
+    if "room_manager_server" in feature.tags:
+        logger_agent.info("Executing with Room Manager Server")
+        set_to_room_manager_server(context)
+    if "exchange_server" in feature.tags:
+        logger_agent.info("Executing with Room Manager Server")
+        set_to_exchange_manager_server(context)
+
+
+def set_to_room_manager_server(context):
+    context.server_host = generic_data['room_manager_server']['host']
+    context.server_port = generic_data['room_manager_server']['port']
+    context.server_protocol = generic_data['room_manager_server']['protocol']
+    context.server_path = generic_data['room_manager_server']['path']
+    context.server_version = generic_data['room_manager_server']['version']
+    set_base_url(context)
+
+
+def set_to_exchange_manager_server(context):
+    context.server_host = generic_data['exchange_manager_server']['host']
+    context.server_port = generic_data['exchange_manager_server']['port']
+    context.server_protocol = generic_data['exchange_manager_server']['protocol']
+    context.server_path = generic_data['exchange_manager_server']['path']
+    context.server_version = generic_data['exchange_manager_server']['version']
+    set_base_url(context)
+
+
+def set_base_url(context):
+    context.base_url = '{}://{}:{}/{}/{}'.format(context.server_protocol,
+                                                 context.server_host,
+                                                 context.server_port,
+                                                 context.server_path,
+                                                 context.server_version)

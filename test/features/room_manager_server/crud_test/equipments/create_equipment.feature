@@ -1,4 +1,4 @@
-@CRUD @equipments
+@CRUD @equipment @room_manager_server
 Feature: POST /meetings CRUD
 
   Scenario: Create meeting with Administrator credentials
