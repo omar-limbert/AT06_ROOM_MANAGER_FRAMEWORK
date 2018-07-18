@@ -1,4 +1,4 @@
-from behave import step
+from behave import step, then
 from compare import expect
 from core.modules.build_expected_response import BuildResponse
 from core.modules.data_settings_manager import DataSettingsManager
@@ -117,3 +117,25 @@ def step_impl(context):
     for row in context.table:
         for heading in row.headings:
             context.body[heading] = row[heading] + CommonActions.get_random_key()
+
+
+@step(u'I keep the "id" as "$id_meeting" from the previous step')
+def step_impl(context):
+    resp_json = context.response.json()
+    context.item_id = resp_json["_id"]
+    context.after_item_id = resp_json["_id"]
+    context.id_meeting = resp_json["_id"]
+
+
+@step(u'I construct a expected response')
+def step_impl(context):
+    context.actual_json = context.resp.json()
+    context.expect_json = context.data
+    context.expect_json['_id'] = context.id_meeting
+    context.expect_json['body'] = context.actual_json['body']
+
+
+@then(u'the built expected response should be equal to the obtained response')
+def step_impl(context):
+    result = ResponseJsonManager.is_json_equal_to(context.actual_json, context.expect_json, )
+    expect(result).to_be_truthy()
