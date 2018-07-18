@@ -1,4 +1,4 @@
-@CRUD @meetings
+@CRUD @meetings @room_manager_server
 Feature: PUT /meetings CRUD
 
   Background: Create meeting with Administrator credentials

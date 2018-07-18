@@ -1,6 +1,6 @@
-@CRUD @meetings
-Feature: POST /meetings CRUD
-
+@CRUD @meetings @room_manager_server
+Feature: POST /meetings
+  @room_manager_server
   Scenario: Create meeting with Administrator credentials
 
     Given I POST to /meetings
