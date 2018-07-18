@@ -1,0 +1,14 @@
+{
+  "_id": {
+    "type": "string"
+  },
+  "name": {
+    "type": "string"
+  },
+  "displayName": {
+    "type": "string"
+  },
+  "icon": {
+    "type": "string"
+  }
+}
