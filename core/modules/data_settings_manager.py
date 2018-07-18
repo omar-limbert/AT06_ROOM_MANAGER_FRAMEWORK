@@ -62,9 +62,13 @@ class DataSettingsManager:
                                                                                        file_data["__ADMINISTRATOR_ACC"],
                                                                                        file_data["__ADMINISTRATOR_PWD"])
 
-        file_data["__USER_CREDENTIALS"] = DataSettingsManager.get_credentials(file_data["__DOMAIN"],
-                                                                              file_data["__USER_ACC"],
-                                                                              file_data["__USER_PWD"])
+        file_data["__USER1_CREDENTIALS"] = DataSettingsManager.get_credentials(file_data["__DOMAIN"],
+                                                                               file_data["__USER1_ACC"],
+                                                                               file_data["__USER2_PWD"])
+
+        file_data["__USER2_CREDENTIALS"] = DataSettingsManager.get_credentials(file_data["__DOMAIN"],
+                                                                               file_data["__USER2_ACC"],
+                                                                               file_data["__USER2_PWD"])
         return file_data
 
     @staticmethod

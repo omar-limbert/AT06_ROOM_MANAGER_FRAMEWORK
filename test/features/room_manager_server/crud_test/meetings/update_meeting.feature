@@ -22,8 +22,8 @@ Feature: PUT /meetings CRUD
     And I prepare following header
       | Credentials                 |
       | __ADMINISTRATOR_CREDENTIALS |
-    And I send create request
-
+    And I send the request
+    And I keep the "id" as "$item_id" from JSON response
 
   Scenario: Create meeting with Administrator credentials
     Given I PUT to /meetings
@@ -49,7 +49,7 @@ Feature: PUT /meetings CRUD
     And I prepare following header
       | Credentials                 |
       | __ADMINISTRATOR_CREDENTIALS |
-    And I send update request
+    And I send the request
     Then I should get response with status code 200
-    And I should validate the meeting schema received
+    And I should validate schema received with  meeting schema on meetings folder
     And I should validate the response contains the body json sent

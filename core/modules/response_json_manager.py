@@ -1,3 +1,5 @@
+import json
+
 from core.utils.common_actions import CommonActions
 
 
@@ -46,7 +48,7 @@ class ResponseJsonManager:
         """
         json_response = CommonActions.sort_json_by_key(json_response)
         json_expected = CommonActions.sort_json_by_key(json_expected)
-        if json_response == json_expected:
+        if json_expected == json_response:
             return True
         elif type(json_expected) and type(json_response) is not dict:
             return False

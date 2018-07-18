@@ -7,7 +7,7 @@ Feature: POST /meetings CRUD
     When I prepare following table
       | name        | displayName | icon    |
       | DataDisplay | Data        | dt_icon |
-    And I send create request
+    And I send the request
     Then I should get response with status code 200
-    And I should validate the equipment schema received
+    And I should validate schema received with  equipment schema on equipments folder
     And I should validate the response contains the body json sent

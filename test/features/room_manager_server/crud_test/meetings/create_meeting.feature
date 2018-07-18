@@ -16,14 +16,15 @@ Feature: POST /meetings
               "__ROOM1",
               "__ROOM2"
             ],
-            "attendees": [],
+            "attendees": ["__USER1_EMAIL", "__USER2_EMAIL"],
             "optionalAttendees": []
           }
         """
     And I prepare following header
       | Credentials                 |
       | __ADMINISTRATOR_CREDENTIALS |
-    And I send create request
+    And I send the request
+    And I keep the "id" as "$item_id" from JSON response
     Then I should get response with status code 200
-    And I should validate the meeting schema received
+    And I should validate schema received with  meeting schema on meetings folder
     And I should validate the response contains the body json sent
