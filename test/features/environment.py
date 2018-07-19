@@ -52,6 +52,12 @@ def after_scenario(context, scenario):
         headers = {"Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"],
                    "ServiceName": "ExchangeServer"}
         delete_feature_request(context, headers)
+    if "delete_equipment" in scenario.tags:
+        headers = {"Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"]}
+        delete_feature_request(context, headers)
+    if "delete_service" in scenario.tags:
+        headers = {"Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"]}
+        delete_feature_request(context, headers)
 
 
 def set_to_room_manager_server(context):

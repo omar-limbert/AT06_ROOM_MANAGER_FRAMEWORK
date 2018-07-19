@@ -1,6 +1,7 @@
 @CRUD @services @room_manager_server
 Feature: POST /services CRUD
 
+  @delete_service
   Scenario: Create services with Administrator credentials
 
     Given I POST to /services
