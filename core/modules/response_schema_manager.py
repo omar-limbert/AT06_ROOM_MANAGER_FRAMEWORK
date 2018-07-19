@@ -16,6 +16,7 @@ class ResponseSchemaManager:
         @:param True if json_schema_response is valid, False is not valid.
         """
         json_schema_expected = ResponseSchemaManager.get_schema(schema_folder, schema_name)
+        print(json_schema_response)
         schema_validator = Validator(json_schema_expected)
         try:
             return schema_validator.validate(json_schema_response)

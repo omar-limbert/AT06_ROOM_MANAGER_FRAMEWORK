@@ -1,0 +1,188 @@
+{
+  "_id": {
+    "type": "string"
+  },
+  "organizer": {
+    "type": "string"
+  },
+  "attendees": {
+    "type": [
+      "string",
+      "list"
+    ]
+  },
+  "optionalAttendees": {
+    "type": [
+      "string",
+      "list"
+    ]
+  },
+  "itemClass": {
+    "type": "string"
+  },
+  "subject": {
+    "type": "string"
+  },
+  "sensitivity": {
+    "type": "string"
+  },
+  "body": {
+    "type": "string"
+  },
+  "dateTimeReceived": {
+    "type": "string"
+  },
+  "size": {
+    "type": "number"
+  },
+  "importance": {
+    "type": "string"
+  },
+  "isSubmitted": {
+    "type": "boolean"
+  },
+  "isDraft": {
+    "type": "boolean"
+  },
+  "isFromMe": {
+    "type": "boolean"
+  },
+  "isResend ": {
+    "type": "boolean"
+  },
+  "isUnmodified": {
+    "type": "boolean"
+  },
+  "dateTimeSent": {
+    "type": "string"
+  },
+  "dateTimeCreated": {
+    "type": "string"
+  },
+  "reminderDueBy": {
+    "type": "string"
+  },
+  "reminderIsSet": {
+    "type": "boolean"
+  },
+  "reminderMinutesBeforeStart": {
+    "type": "number"
+  },
+  "displayCc": {
+    "type": "string"
+  },
+  "displayTo": {
+    "type": "string"
+  },
+  "hasAttachments": {
+    "type": "boolean"
+  },
+  "culture": {
+    "type": "string"
+  },
+  "createAssociated": {
+    "type": "string"
+  },
+  "createContents": {
+    "type": "string"
+  },
+  "createHierarchy": {
+    "type": "string"
+  },
+  "delete": {
+    "type": "string"
+  },
+  "modify": {
+    "type": "string"
+  },
+  "read": {
+    "type": "string"
+  },
+  "viewPrivateItems": {
+    "type": "string"
+  },
+  "lastModifiedName": {
+    "type": "string"
+  },
+  "lastModifiedTime": {
+    "type": "string"
+  },
+  "isAssociated": {
+    "type": "boolean"
+  },
+  "conversationId": {
+    "type": "string"
+  },
+  "UID": {
+    "type": "string"
+  },
+  "dateTimeStamp": {
+    "type": "string"
+  },
+  "start": {
+    "type": "string"
+  },
+  "end": {
+    "type": "string"
+  },
+  "isAllDayEvent": {
+    "type": "boolean"
+  },
+  "legacyFreeBusyStatus": {
+    "type": "string"
+  },
+  "location": {
+    "type": "string"
+  },
+  "when": {
+    "type": "string"
+  },
+  "isMeeting": {
+    "type": "boolean"
+  },
+  "isCanceled": {
+    "type": "boolean"
+  },
+  "isRecurring": {
+    "type": "boolean"
+  },
+  "meetingRequestWasSent": {
+    "type": "boolean"
+  },
+  "isResponseRequested": {
+    "type": "boolean"
+  },
+  "calendarItemType": {
+    "type": "string"
+  },
+  "myResponseType": {
+    "type": "string"
+  },
+  "duration": {
+    "type": "string"
+  },
+  "timeZone": {
+    "type": "string"
+  },
+  "appointmentSequenceNumber": {
+    "type": "number"
+  },
+  "appointmentState": {
+    "type": "number"
+  },
+  "uniqueId": {
+    "type": "string"
+  },
+  "changeKey": {
+    "type": "string"
+  },
+  "parentFolderId": {
+    "type": "string"
+  },
+  "parentFolderChangeKey": {
+    "type": "string"
+  },
+  "exchangeAccountId": {
+    "type": "string"
+  }
+}

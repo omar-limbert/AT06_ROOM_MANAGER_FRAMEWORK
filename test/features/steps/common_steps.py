@@ -116,3 +116,7 @@ def step_impl(context,item_id,feature):
     :type context: behave.runner.Context
     """
     context.request.set_item_id(context.item_id)
+
+@step(u'The response should display service "{message}"')
+def step_impl(context, message):
+    expect(context.response.json()['name']).to_equal(message)
