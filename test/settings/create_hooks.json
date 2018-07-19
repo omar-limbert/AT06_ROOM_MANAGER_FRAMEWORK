@@ -1,0 +1,19 @@
+[
+  {
+    "tag": "create_meeting",
+    "end_point": "/meetings",
+    "feature": "meetings",
+    "sample_file": "meetings",
+    "headers": {
+      "Credentials": "__ADMINISTRATOR_CREDENTIALS",
+      "ServiceName": "ExchangeServer"
+    }
+  },
+  {
+    "tag": "create_equipment",
+    "end_point": "/equipments",
+    "feature": "equipments",
+    "sample_file": "equipments"
+  }
+]
+
