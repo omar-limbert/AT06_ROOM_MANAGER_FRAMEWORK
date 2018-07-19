@@ -10,5 +10,14 @@ exchange_manager_server:
   port:
   protocol:
   path:
-  version: 
+  version:
 
+data_base_server:
+  room_manager:
+    host:
+    port:
+    db_name:
+  exchange:
+    host:
+    port:
+    db_name:

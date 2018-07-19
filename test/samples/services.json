@@ -1,0 +1,7 @@
+{
+  "type": "ExchangeServer",
+  "hostname": "am-agent-1-cons.manual.local",
+  "username": "manual\\Administrator",
+  "password": "Control1234!",
+  "deleteLockTime": 10
+}

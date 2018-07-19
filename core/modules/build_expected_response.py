@@ -1,5 +1,4 @@
 # Class to build the expected response.
-
 class BuildResponse:
 
     @staticmethod

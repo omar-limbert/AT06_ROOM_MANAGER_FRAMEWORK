@@ -2,7 +2,6 @@ from behave import step
 from compare import expect
 from core.modules.build_expected_response import BuildResponse
 from core.modules.data_settings_manager import DataSettingsManager
-from core.modules.request_manager import RequestManager
 from core.modules.response_json_manager import ResponseJsonManager
 from core.modules.response_schema_manager import ResponseSchemaManager
 from core.utils.common_actions import CommonActions
@@ -95,11 +94,11 @@ def step_impl(context):
     """
     :type context: behave.runner.Context
     """
+    print("in step",context.response.json()["_id"])
     context.item_id = context.response.json()["_id"]
 
-
-@step("I prepare {item_id} saved before in create meeting hook")
-def step_impl(context,item_id):
+@step("I saved the {item_id} of {feature} created before")
+def step_impl(context,item_id,feature):
     """
     :param item_id:
     :type context: behave.runner.Context

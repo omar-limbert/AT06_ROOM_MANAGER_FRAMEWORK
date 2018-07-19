@@ -5,6 +5,8 @@ import random
 import string
 from pathlib import Path
 
+import yaml
+
 
 class CommonActions:
 
@@ -98,3 +100,21 @@ class CommonActions:
                                                           )
 
         return json.loads(open(schema_path).read())
+
+    @staticmethod
+    def get_config_file_path(file_name, type):
+        """
+        This method is to get a scheme.
+        @:param schema_name: schema name.
+        @:return schema on json format.
+        """
+        file_path = "{}{}test{}settings{}{}".format(str(Path().absolute()),
+                                                    os.path.sep,
+                                                    os.path.sep,
+                                                    os.path.sep,
+                                                    file_name
+                                                    )
+        if type == "yml":
+            return yaml.load(open(file_path+".yml"))
+        elif type == "json":
+            return json.loads(open(file_path+".json").read())
