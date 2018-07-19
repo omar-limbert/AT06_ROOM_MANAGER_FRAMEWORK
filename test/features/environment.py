@@ -39,6 +39,10 @@ def before_scenario(context, scenario):
                    "ServiceName": "ExchangeServer"}
         create_feature_request(context, "equipments", headers)
 
+    if "create_service" in scenario.tags:
+        headers = {"Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"]}
+        create_feature_request(context, "services", headers)
+
 
 def before_feature(context, feature):
     if "room_manager_server" in feature.tags:
@@ -51,6 +55,12 @@ def after_scenario(context, scenario):
     if "delete_meeting" in scenario.tags:
         headers = {"Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"],
                    "ServiceName": "ExchangeServer"}
+        delete_feature_request(context, headers)
+    if "delete_equipment" in scenario.tags:
+        headers = {"Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"]}
+        delete_feature_request(context, headers)
+    if "delete_service" in scenario.tags:
+        headers = {"Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"]}
         delete_feature_request(context, headers)
 
 
