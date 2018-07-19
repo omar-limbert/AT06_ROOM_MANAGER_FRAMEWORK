@@ -17,6 +17,7 @@ def step_impl(context, server):
 
 @step(u"I send the request")
 def step_impl(context):
+    logger_agent.info("I send the request")
     print(context.request.get_item_id(), context.request.get_base_url())
     context.response = context.request.execute_request(context.method,
                                                        context.end_point)
@@ -25,22 +26,27 @@ def step_impl(context):
 
 @step(u'I {method} to {end_point}')
 def step_impl(context, method, end_point):
+    logger_agent.info("I {} to {}".format(method, end_point))
     context.method = method
     context.end_point = end_point
 
 
 @step(u"I prepare following body")
 def step_impl(context):
+    logger_agent.info("I prepare following body")
     context.request.set_body(DataSettingsManager.fill_json_with_data_on_settings(context.text))
 
 
 @step(u"I should get response with status code {status_code}")
 def step_impl(context, status_code):
+    logger_agent.info("I should get response with status code {}".format(status_code))
     expect(int(status_code)).to_equal(context.response.status_code)
 
 
 @step(u"I should validate schema received with  {schema_name} schema on {schema_folder} folder")
 def step_impl(context, schema_name, schema_folder):
+    logger_agent.info("I should validate schema received with  {} schema on {} folder"
+                      .format(schema_name, schema_folder))
     """
     :param schema_folder:
     :param schema_name:
@@ -54,6 +60,7 @@ def step_impl(context, schema_name, schema_folder):
 
 @step(u"I should validate the response contains the body json sent")
 def step_impl(context):
+    logger_agent.info("I should validate the response contains the body json sent")
     """
     :type context: behave.runner.Context
     """
@@ -64,6 +71,7 @@ def step_impl(context):
 
 @step("I prepare following header")
 def step_impl(context):
+    logger_agent.info("I prepare following header")
     """
     :type context: behave.runner.Context
     """
@@ -79,6 +87,7 @@ def step_impl(context):
 
 @step("I prepare following table")
 def step_impl(context):
+    logger_agent.info("I prepare following table")
     """
     :type context: behave.runner.Context
     """
@@ -91,14 +100,17 @@ def step_impl(context):
 
 @step('I keep the "id" as "$item_id" from JSON response')
 def step_impl(context):
+    logger_agent.info("I keep the id as $item_id from JSON response'")
     """
     :type context: behave.runner.Context
     """
     print("in step",context.response.json()["_id"])
     context.item_id = context.response.json()["_id"]
 
+
 @step("I saved the {item_id} of {feature} created before")
 def step_impl(context,item_id,feature):
+    logger_agent.info("I saved the {} of {} created before".format(item_id, feature))
     """
     :param item_id:
     :type context: behave.runner.Context
