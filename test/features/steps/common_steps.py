@@ -26,8 +26,6 @@ def step_impl(context):
 
 @step(u'I {method} to {end_point}')
 def step_impl(context, method, end_point):
-    if method == "DELETE" or method == "PUT":
-        context.request.set_item_id(context.item_id)
     context.method = method
     context.end_point = end_point
 
@@ -73,7 +71,10 @@ def step_impl(context):
     headers = {}
     for row in context.table:
         for heading in row.headings:
-            headers[heading] = context.accounts[row[heading]]
+            if row[heading] in context.accounts:
+                headers[heading] = context.accounts[row[heading]]
+            else:
+                headers[heading] = row[heading]
     context.request.set_headers(headers)
 
 
@@ -96,3 +97,11 @@ def step_impl(context):
     """
     context.item_id = context.response.json()["_id"]
 
+
+@step("I prepare {item_id} saved before in create meeting hook")
+def step_impl(context,item_id):
+    """
+    :param item_id:
+    :type context: behave.runner.Context
+    """
+    context.request.set_item_id(context.item_id)

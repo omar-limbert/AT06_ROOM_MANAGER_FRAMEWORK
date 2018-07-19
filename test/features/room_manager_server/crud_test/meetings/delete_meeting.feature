@@ -5,6 +5,10 @@ Feature: DELETE /meetings/{meetingId}
   Scenario: Delete an existing meeting by id
 
     When I DELETE to /meetings
+    And I prepare following header
+      | Credentials                 | ServiceName    |
+      | __ADMINISTRATOR_CREDENTIALS | ExchangeServer |
+    And I prepare meeting_id saved before in create meeting hook
     And I send the request
     Then I should get response with status code 204
     And I should validate schema received with  meeting schema on meetings folder
