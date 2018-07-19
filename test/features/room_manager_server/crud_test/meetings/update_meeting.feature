@@ -2,7 +2,7 @@
 Feature: PUT /meetings CRUD
 
   @create_meeting @delete_meeting
-  Scenario: Create meeting with Administrator credentials
+  Scenario: Update meeting with Administrator credentials
     Given I PUT to /meetings
     When I prepare following body
         """
@@ -23,6 +23,7 @@ Feature: PUT /meetings CRUD
     And I prepare following header
       | Credentials                 | ServiceName    |
       | __ADMINISTRATOR_CREDENTIALS | ExchangeServer |
+    And I saved the meeting_id of meetings created before
     And I send the request
     Then I should get response with status code 200
     And I should validate schema received with  meeting schema on meetings folder

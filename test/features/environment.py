@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import json
 import os
 
 import yaml
@@ -11,8 +12,7 @@ from core.utils.singleton_logger import SingletonLogger
 global generic_data
 logger_agent = SingletonLogger().get_logger()
 current_file_path = os.path.dirname(os.path.abspath(__file__))
-config_path = str(os.path.dirname(current_file_path) + os.path.sep + 'settings' + os.path.sep + 'config.yml')
-generic_data = yaml.load(open(config_path))
+generic_data = CommonActions.get_config_file_path("config", "yml")
 
 
 def before_all(context):
@@ -35,7 +35,10 @@ def before_scenario(context, scenario):
         create_feature_request(context, "meetings", headers)
 
     if "create_equipment" in scenario.tags:
-        create_feature_request(context, "equipments")
+        headers = {"Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"],
+                   "ServiceName": "ExchangeServer"}
+        create_feature_request(context, "equipments", headers)
+
     if "create_service" in scenario.tags:
         headers = {"Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"]}
         create_feature_request(context, "services", headers)
@@ -43,10 +46,8 @@ def before_scenario(context, scenario):
 
 def before_feature(context, feature):
     if "room_manager_server" in feature.tags:
-        logger_agent.info("Executing with Room Manager Server")
         set_to_room_manager_server(context)
     if "exchange_server" in feature.tags:
-        logger_agent.info("Executing with Room Manager Server")
         set_to_exchange_manager_server(context)
 
 
@@ -99,6 +100,7 @@ def create_feature_request(context, feature, headers=None):
     context.request.set_headers(headers)
     context.response = context.request.execute_request("POST",
                                                        "/{}".format(feature))
+    print(context.response.json())
     context.item_id = context.response.json()["_id"]
 
 

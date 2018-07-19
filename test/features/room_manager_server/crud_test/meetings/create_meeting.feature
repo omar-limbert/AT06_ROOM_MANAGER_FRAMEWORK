@@ -18,13 +18,13 @@ Feature: POST /meetings
             ],
             "attendees": ["__USER1_EMAIL", "__USER2_EMAIL"],
             "optionalAttendees": []
-          }
+          }`
         """
-    And I prepare following header
+     And I prepare following header
       | Credentials                 |
       | __ADMINISTRATOR_CREDENTIALS |
-    And I send the request
-    And I keep the "id" as "$item_id" from JSON response
+     And I send the request
+     And I keep the "id" as "$item_id" from JSON response
     Then I should get response with status code 201
-    And I should validate schema received with  meeting schema on meetings folder
-    And I should validate the response contains the body json sent
+     And I should validate schema received with  meeting schema on meetings folder
+     And I should validate the response contains the body json sent

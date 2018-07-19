@@ -10,6 +10,14 @@ from core.utils.common_actions import CommonActions
 class DataSettingsManager:
 
     @staticmethod
+    def fill_json_list_with_data_on_settings(json_list):
+        result = []
+        for json in json_list:
+            json = str(json).replace("'", "\"")
+            result.append(DataSettingsManager.fill_json_with_data_on_settings(json))
+        return result
+
+    @staticmethod
     def fill_json_with_data_on_settings(json_to_fill):
         """
         This method is to get data of setting file in a dictionary.
@@ -52,12 +60,7 @@ class DataSettingsManager:
         @:param file_data_name: This is a name of file to read on settings folder.
         @:return dictionary with all data.
         """
-        file_data_path = "{}{}test{}settings{}{}.yml".format(str(Path().absolute()),
-                                                             os.path.sep,
-                                                             os.path.sep,
-                                                             os.path.sep,
-                                                             file_data_name)
-        file_data = yaml.load(open(file_data_path))
+        file_data = CommonActions.get_config_file_path(file_data_name, "yml")
         file_data["__ADMINISTRATOR_CREDENTIALS"] = DataSettingsManager.get_credentials(file_data["__DOMAIN"],
                                                                                        file_data["__ADMINISTRATOR_ACC"],
                                                                                        file_data["__ADMINISTRATOR_PWD"])
