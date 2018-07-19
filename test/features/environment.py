@@ -30,7 +30,8 @@ def before_scenario(context, scenario):
     context.request.set_base_url(context.base_url)
 
     if "create_meeting" in scenario.tags:
-        headers = {"Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"]}
+        headers = {"Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"],
+                   "ServiceName": "ExchangeServer"}
         create_feature_request(context, "meetings", headers)
 
     if "create_equipment" in scenario.tags:
@@ -44,6 +45,13 @@ def before_feature(context, feature):
     if "exchange_server" in feature.tags:
         logger_agent.info("Executing with Room Manager Server")
         set_to_exchange_manager_server(context)
+
+
+def after_scenario(context, scenario):
+    if "delete_meeting" in scenario.tags:
+        headers = {"Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"],
+                   "ServiceName": "ExchangeServer"}
+        delete_feature_request(context, headers)
 
 
 def set_to_room_manager_server(context):
@@ -83,3 +91,14 @@ def create_feature_request(context, feature, headers=None):
     context.response = context.request.execute_request("POST",
                                                        "/{}".format(feature))
     context.item_id = context.response.json()["_id"]
+
+
+def delete_feature_request(context, headers=None):
+    if headers is None:
+        headers = {}
+    context.request.set_item_id(context.item_id)
+    context.request.set_headers(headers)
+    print(context.item_id, headers, context.end_point)
+    context.response = context.request.execute_request("DELETE",
+                                                       context.end_point)
+    print(context.response.status_code)
