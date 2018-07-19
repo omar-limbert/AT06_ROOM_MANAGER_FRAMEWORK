@@ -4,6 +4,6 @@ Feature: GET /exchange_accounts Smoke
     Given I GET to /exchangeAccounts
     When I prepare following table
       | sAMAccountName      |
-      | jin                 |
+      | __ACCOUNT_NAME      |
     And I send the request
     Then I should get response with status code 200

@@ -4,7 +4,7 @@ Feature: GET /exchange_accounts Smoke
     Given I GET to /exchangeAccounts
     When I prepare following table
       | lastName      | firstName      |
-      | Romero        | Jimmy          |
+      | __LAST_NAME   | __FIRST_NAME   |
     And I send the request
     Then I should get response with status code 200
 
