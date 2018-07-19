@@ -16,6 +16,7 @@ Feature: POST /services CRUD
           }
         """
     And I send the request
+    And I keep the "id" as "$item_id" from JSON response
     Then I should get response with status code 200
-#    And I should validate schema received with  services schema on services folder
+    And I should validate schema received with  services schema on services folder
     And I should validate the response contains the body json sent
