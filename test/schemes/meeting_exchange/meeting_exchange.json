@@ -33,25 +33,25 @@
     "type": "string"
   },
   "size": {
-    "type": "int"
+    "type": "number"
   },
   "importance": {
     "type": "string"
   },
   "isSubmitted": {
-    "type": "bool"
+    "type": "boolean"
   },
   "isDraft": {
-    "type": "bool"
+    "type": "boolean"
   },
   "isFromMe": {
-    "type": "bool"
+    "type": "boolean"
   },
   "isResend ": {
-    "type": "bool"
+    "type": "boolean"
   },
   "isUnmodified": {
-    "type": "bool"
+    "type": "boolean"
   },
   "dateTimeSent": {
     "type": "string"
@@ -63,10 +63,10 @@
     "type": "string"
   },
   "reminderIsSet": {
-    "type": "bool"
+    "type": "boolean"
   },
   "reminderMinutesBeforeStart": {
-    "type": "int"
+    "type": "number"
   },
   "displayCc": {
     "type": "string"
@@ -75,7 +75,7 @@
     "type": "string"
   },
   "hasAttachments": {
-    "type": "bool"
+    "type": "boolean"
   },
   "culture": {
     "type": "string"
@@ -108,7 +108,7 @@
     "type": "string"
   },
   "isAssociated": {
-    "type": "bool"
+    "type": "boolean"
   },
   "conversationId": {
     "type": "string"
@@ -126,7 +126,7 @@
     "type": "string"
   },
   "isAllDayEvent": {
-    "type": "bool"
+    "type": "boolean"
   },
   "legacyFreeBusyStatus": {
     "type": "string"
@@ -138,19 +138,19 @@
     "type": "string"
   },
   "isMeeting": {
-    "type": "bool"
+    "type": "boolean"
   },
   "isCanceled": {
-    "type": "bool"
+    "type": "boolean"
   },
   "isRecurring": {
-    "type": "bool"
+    "type": "boolean"
   },
   "meetingRequestWasSent": {
-    "type": "bool"
+    "type": "boolean"
   },
   "isResponseRequested": {
-    "type": "bool"
+    "type": "boolean"
   },
   "calendarItemType": {
     "type": "string"
@@ -165,10 +165,10 @@
     "type": "string"
   },
   "appointmentSequenceNumber": {
-    "type": "int"
+    "type": "number"
   },
   "appointmentState": {
-    "type": "int"
+    "type": "number"
   },
   "uniqueId": {
     "type": "string"

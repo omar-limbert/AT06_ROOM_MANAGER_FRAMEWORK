@@ -37,6 +37,11 @@ def before_scenario(context, scenario):
     if "create_equipment" in scenario.tags:
         create_feature_request(context, "equipments")
 
+    if "create_meeting_exchange" in scenario.tags:
+        headers = {"Exchange-Credentials": context.accounts["__ADMINISTRATOR_CREDENTIALS"],
+                   "Exchange-Calendar": "__ROOM1"}
+        create_feature_request(context, "meeting_exchange", headers)
+
 
 def before_feature(context, feature):
     if "room_manager_server" in feature.tags:

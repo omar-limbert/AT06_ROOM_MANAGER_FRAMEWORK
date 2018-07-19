@@ -1,4 +1,4 @@
-@CRUD @meetings @exchange_server
+@CRUD @meetings_exchange @exchange_server
 Feature: POST /meetings
 
   Scenario: Create meeting with Administrator credentials
@@ -7,17 +7,17 @@ Feature: POST /meetings
     When I prepare following body
         """
           {
-            "subject": "Scrum",
-            "body": "Scrum of Room Manager",
-            "start": "2017-01-25T16:00:00.00Z",
-            "end": "2017-01-25T17:00:00.00Z",
-            "location": "Arani",
-            "attendees": [
+            "to": [
               "candace.flynn@server.lab"
             ],
-            "optionalAttendees": [
-              "stacy.hirano@server.lab"
-            ]
+            "cc": [
+              "candace.flynn@server.lab"
+            ],
+            "bcc": [
+              "candace.flynn@server.lab"
+            ],
+            "subject": "Scrum",
+            "body": "Scrum of Room Manager"
           }
         """
     And I prepare following header
@@ -26,5 +26,5 @@ Feature: POST /meetings
     And I send the request
     And I keep the "id" as "$item_id" from JSON response
     Then I should get response with status code 201
-    And I should validate schema received with  meeting schema on meetings_exchange folder
+    And I should validate schema received with  meeting_exchange schema on meetings_exchange folder
     And I should validate the response contains the body json sent
