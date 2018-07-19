@@ -9,6 +9,7 @@ Feature: GET/equipments/{equipmentId}
     And I send the request
     And I keep the "id" as "$item_id" from JSON response
 
+    @delete_equipment
   Scenario: Obtain an existent equipment by id
     When I GET to /equipments
     Then I should get response with status code 200
