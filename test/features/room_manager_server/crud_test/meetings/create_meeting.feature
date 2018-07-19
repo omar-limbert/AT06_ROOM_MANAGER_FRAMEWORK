@@ -1,6 +1,6 @@
 @CRUD @meetings @room_manager_server
 Feature: POST /meetings
-
+  @delete_meeting
   Scenario: Create meeting with Administrator credentials
 
     Given I POST to /meetings
